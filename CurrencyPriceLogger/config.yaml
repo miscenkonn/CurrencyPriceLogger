@@ -1,0 +1,7 @@
+﻿ConnectionString: Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = CurrencyPriceLoggerDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False
+Symbols:
+ - btcusdt
+ - btceur
+ - btcrub
+ - btcgbp
+ - btcuah
