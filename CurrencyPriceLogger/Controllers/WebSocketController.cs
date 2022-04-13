@@ -66,8 +66,11 @@ namespace CurrencyPriceLogger.Controllers
                         {
                             try
                             {
-                                context.Symbols.AddRange(dataBuffer);
+                                var tmpBuffer = dataBuffer;
+                                context.Symbols.AddRange(tmpBuffer);
                                 await context.SaveChangesAsync();
+                                Logger.Log("Wiping buffer data...");
+                                dataBuffer.Clear();
                             }
                             catch (Exception ex)
                             {
@@ -75,9 +78,7 @@ namespace CurrencyPriceLogger.Controllers
                             }
                         }
 
-                        Logger.Log("Wiping buffer data...");
                         Logger.Log("Buffering is in progress...");
-                        dataBuffer.Clear();
                     }
                 }, CancellationToken.None);
 
