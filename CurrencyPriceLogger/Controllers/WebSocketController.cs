@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 using System.Threading.Tasks;
 using Binance.Spot;
 using Newtonsoft.Json;
@@ -66,7 +67,7 @@ namespace CurrencyPriceLogger.Controllers
                         {
                             try
                             {
-                                var tmpBuffer = dataBuffer;
+                                var tmpBuffer = dataBuffer.Select(d => d).ToList();
                                 context.Symbols.AddRange(tmpBuffer);
                                 await context.SaveChangesAsync();
                                 Logger.Log("Wiping buffer data...");
